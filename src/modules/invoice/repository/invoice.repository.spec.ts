@@ -37,7 +37,7 @@ describe("Invoice repository test", () => {
                 complement: "Melhor AP",
                 city: "Florianopolis",
                 state: "SC",
-                zipcode: "88888-123",
+                zipCode: "88888-123",
                 items: [{
                     id: "item1",
                     name: "item 1",
@@ -62,7 +62,7 @@ describe("Invoice repository test", () => {
         expect(result.address.complement).toEqual(invoice.complement);
         expect(result.address.city).toEqual(invoice.city);
         expect(result.address.state).toEqual(invoice.state);
-        expect(result.address.zipCode).toEqual(invoice.zipcode);
+        expect(result.address.zipCode).toEqual(invoice.zipCode);
 
     });
 
@@ -92,7 +92,7 @@ describe("Invoice repository test", () => {
         const repository = new InvoiceRepository();
         await repository.generate(invoice);
 
-        const result = await InvoiceModel.findOne({where: { id:invoice.id.id } });
+        const result = await InvoiceModel.findOne({where: {id: invoice.id.id}});
         expect(result.id).toEqual(invoice.id.id);
         expect(result.document).toEqual(invoice.document);
         expect(result.street).toEqual(invoice.address.street);
@@ -100,7 +100,7 @@ describe("Invoice repository test", () => {
         expect(result.complement).toEqual(invoice.address.complement);
         expect(result.city).toEqual(invoice.address.city);
         expect(result.state).toEqual(invoice.address.state);
-        expect(result.zipcode).toEqual(invoice.address.zipCode);
+        expect(result.zipCode).toEqual(invoice.address.zipCode);
     })
 
 })

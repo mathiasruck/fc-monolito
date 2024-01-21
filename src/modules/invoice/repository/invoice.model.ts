@@ -1,4 +1,4 @@
-import {Column, ForeignKey, HasMany, Model, PrimaryKey, Table} from "sequelize-typescript";
+import {Column, HasMany, Model, PrimaryKey, Table} from "sequelize-typescript";
 import {InvoiceItemsModel} from "./invoice.items.model";
 
 @Table({
@@ -32,7 +32,7 @@ export class InvoiceModel extends Model {
     state: string
 
     @Column({allowNull: false})
-    zipcode: string
+    zipCode: string
 
     @Column({allowNull: false})
     total: number;
@@ -43,6 +43,6 @@ export class InvoiceModel extends Model {
     @Column({allowNull: false})
     updatedAt: Date
 
-    @HasMany(() => InvoiceItemsModel, { foreignKey: 'itemId' })
+    @HasMany(() => InvoiceItemsModel, {foreignKey: 'itemId'})
     items: InvoiceItemsModel[];
 }

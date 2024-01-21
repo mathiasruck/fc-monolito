@@ -58,7 +58,7 @@ describe("Invoice facade test", () => {
         expect(result.complement).toEqual(input.complement);
         expect(result.city).toEqual(input.city);
         expect(result.state).toEqual(input.state);
-        expect(result.zipcode).toEqual(input.zipCode);
+        expect(result.zipCode).toEqual(input.zipCode);
     });
 
     it("should find an invoice", async () => {
@@ -72,7 +72,7 @@ describe("Invoice facade test", () => {
                 complement: "Melhor AP",
                 city: "Florianopolis",
                 state: "SC",
-                zipcode: "88888-123",
+                zipCode: "88888-123",
                 items: [{
                     id: "item1",
                     name: "item 1",
@@ -96,7 +96,7 @@ describe("Invoice facade test", () => {
         expect(result.address.complement).toEqual(input.complement);
         expect(result.address.city).toEqual(input.city);
         expect(result.address.state).toEqual(input.state);
-        expect(result.address.zipCode).toEqual(input.zipcode);
+        expect(result.address.zipCode).toEqual(input.zipCode);
     })
 
 

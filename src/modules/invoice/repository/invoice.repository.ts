@@ -25,7 +25,7 @@ export default class InvoiceRepository implements InvoiceGateway {
                 invoice.complement,
                 invoice.city,
                 invoice.state,
-                invoice.zipcode,
+                invoice.zipCode,
             ),
             document: invoice.document,
             items: invoice.items.map(item => new InvoiceItemsEntity({
@@ -48,7 +48,7 @@ export default class InvoiceRepository implements InvoiceGateway {
             complement: invoice.address.complement,
             city: invoice.address.city,
             state: invoice.address.state,
-            zipcode: invoice.address.zipCode,
+            zipCode: invoice.address.zipCode,
             total: invoice.items.map(item => item.price)
                 .reduce((previousValue, currentValue) => previousValue + currentValue),
             items: invoice.items,

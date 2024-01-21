@@ -1,35 +1,35 @@
 import Id from "../../../@shared/domain/value-object/id.value-object";
-import Product from "../../domain/product.entity";
-import ProductGateway from "../../gateway/product.gateway";
-import { AddProductInputDto, AddProductOutputDto } from "./add-product.dto";
+import ProductAdm from "../../domain/product-adm.entity";
+import ProductAdmGateway from "../../gateway/product-adm.gateway";
+import {AddProductInputDto, AddProductOutputDto} from "./add-product.dto";
 
 export default class AddProductUseCase {
-  private _productRepository: ProductGateway;
+    private _productRepository: ProductAdmGateway;
 
-  constructor(_productRepository: ProductGateway) {
-    this._productRepository = _productRepository;
-  }
+    constructor(_productRepository: ProductAdmGateway) {
+        this._productRepository = _productRepository;
+    }
 
-  async execute(input: AddProductInputDto): Promise<AddProductOutputDto> {
-    const props = {
-      id: new Id(input.id),
-      name: input.name,
-      description: input.description,
-      purchasePrice: input.purchasePrice,
-      stock: input.stock,
-    };
+    async execute(input: AddProductInputDto): Promise<AddProductOutputDto> {
+        const props = {
+            id: new Id(input.id),
+            name: input.name,
+            description: input.description,
+            purchasePrice: input.purchasePrice,
+            stock: input.stock,
+        };
 
-    const product = new Product(props);
-    this._productRepository.add(product);
+        const product = new ProductAdm(props);
+        this._productRepository.add(product);
 
-    return {
-      id: product.id.id,
-      name: product.name,
-      description: product.description,
-      purchasePrice: product.purchasePrice,
-      stock: product.stock,
-      createdAt: product.createdAt,
-      updatedAt: product.updatedAt,
-    };
-  }
+        return {
+            id: product.id.id,
+            name: product.name,
+            description: product.description,
+            purchasePrice: product.purchasePrice,
+            stock: product.stock,
+            createdAt: product.createdAt,
+            updatedAt: product.updatedAt,
+        };
+    }
 }
