@@ -33,5 +33,8 @@
     "umzug": "^3.2.1",
     "uuid": "^8.3.2",
     "yup": "^0.32.11"
+  },
+  "optionalDependencies": {
+    "@swc/core-linux-x64-gnu": "^1.2.160"
   }
 }
